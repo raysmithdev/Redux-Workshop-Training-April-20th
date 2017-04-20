@@ -2,6 +2,7 @@ import React from 'react'
 import {Card, CardActions, CardHeader, CardTitle, CardText} from 'material-ui/Card'
 import FlatButton from 'material-ui/FlatButton'
 import { connect } from 'react-redux'
+import ChipIcon from '../Chip/Chip'
 
 const List = ({ beers }) => (
   <div>
@@ -16,6 +17,12 @@ const List = ({ beers }) => (
         <CardText>
           {beer.description}
         </CardText>
+        <CardHeader
+          title="Ingredients"
+        />
+        {beer.ingredients.malt.map((i, index) => (
+          <ChipIcon key={index} ingredient={i} />
+        ))}
         {/* <CardActions>
           <FlatButton label="Action1" />
           <FlatButton label="Action2" />
